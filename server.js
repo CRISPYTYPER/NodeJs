@@ -45,8 +45,6 @@ app.all('/data.xml', function(request,response) {
 
 });
 
-
-
 // 웹 서버를 실행합니다.
 http.createServer(app).listen(52273, function() {
   console.log('Server Running at http://127.0.0.1:52273');
