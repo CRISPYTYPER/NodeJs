@@ -39,10 +39,23 @@ app.all('/data.html', function(request,response) {
   response.send(output);
 });
 app.all('/data.json', function(request,response) {
-
+  response.send(items);
 });
 app.all('/data.xml', function(request,response) {
-
+  var output = '';
+  output += '<?xml version="1.0" encoding="UTF-8" ?>'; 
+  output += '<products>';
+  items.forEach(function(item) {
+  output += '<product>';
+  output += '<name>' + item.name + '</name>';
+  output += '<price>' + item.price + '</price>';
+  output += '</product>';
+  });
+  output += '</products>';
+  response.type('text/xml');
+  response.send(output);
+  
+   
 });
 
 // 웹 서버를 실행합니다.
